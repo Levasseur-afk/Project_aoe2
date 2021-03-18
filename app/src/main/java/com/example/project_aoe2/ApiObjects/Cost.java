@@ -50,6 +50,20 @@ public class Cost implements Serializable {
 
     @Override
     public String toString() {
-        return "Cost{ }";
+        String display = "Cost{ ";
+        if(Wood != 0){
+            display += "Wood:" + Integer.toString(Wood) + ", ";
+        }
+        if(Food != 0){
+            display += "Food:" + Integer.toString(Food) + ", ";
+        }
+        if(Stone != 0){
+            display += "Stone:" + Integer.toString(Stone) + ", ";
+        }
+        if(Gold != 0){
+            display += "Gold:" + Integer.toString(Gold);
+        }
+        display += " }";
+        return display;
     }
 }

@@ -1,6 +1,5 @@
 package com.example.project_aoe2.Unit;
 
-import android.util.Log;
 
 import com.example.project_aoe2.ApiObjects.Unit;
 import com.example.project_aoe2.Tools.GetRawData;
@@ -43,9 +42,6 @@ public class GetUnits implements GetRawData.IProcessRawData{
             }
         } catch (JSONException e) {
             e.printStackTrace();
-        }
-        for(Unit unit : unitList){
-            Log.d("UNIT", unit.toString());
         }
         display.displayUnit(this.unitList);
     }

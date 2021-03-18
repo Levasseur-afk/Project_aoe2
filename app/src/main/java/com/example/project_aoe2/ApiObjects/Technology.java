@@ -1,8 +1,9 @@
 package com.example.project_aoe2.ApiObjects;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Technology {
+public class Technology implements Serializable {
     private int id;
     private String name;
     private String description;
@@ -13,16 +14,11 @@ public class Technology {
     private int build_time;
     private List<String> applies_to;
 
-    public Technology(int id, String name, String description, String expansion, String age, String develops_in, Cost cost, int build_time, List<String> applies_to) {
+    public Technology(){}
+
+    public Technology(int id, String name){
         this.id = id;
-        this.name = name;
-        this.description = description;
-        this.expansion = expansion;
-        this.age = age;
-        this.develops_in = develops_in;
-        this.cost = cost;
-        this.build_time = build_time;
-        this.applies_to = applies_to;
+        this.name= name;
     }
 
     public int getId() {
@@ -95,5 +91,20 @@ public class Technology {
 
     public void setApplies_to(List<String> applies_to) {
         this.applies_to = applies_to;
+    }
+
+    @Override
+    public String toString() {
+        return "Technology{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", expansion='" + expansion + '\'' +
+                ", age='" + age + '\'' +
+                ", develops_in='" + develops_in + '\'' +
+                ", " + cost.toString() +
+                ", build_time=" + build_time +
+                ", applies_to=" + applies_to +
+                '}';
     }
 }

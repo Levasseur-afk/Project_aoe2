@@ -25,9 +25,9 @@ public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerV
 
     @NonNull
     @Override
-    public RecyclerViewAdapterStructure.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.structure, null);
-        RecyclerViewAdapterStructure.ItemViewHolder itemViewHolder = new RecyclerViewAdapterStructure.ItemViewHolder(v);
+        ItemViewHolder itemViewHolder = new RecyclerViewAdapterStructure.ItemViewHolder(v);
         return itemViewHolder;
     }
 

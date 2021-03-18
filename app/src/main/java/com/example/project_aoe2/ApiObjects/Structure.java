@@ -146,7 +146,7 @@ public class Structure implements Serializable {
                 ", description='" + description + '\'' +
                 ", expansion='" + expansion + '\'' +
                 ", age='" + age + '\'' +
-                ", cost=" + cost +
+                ", " + cost.toString() +
                 ", build_time=" + build_time +
                 ", hit_points=" + hit_points +
                 ", line_of_sight=" + line_of_sight +

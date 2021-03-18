@@ -50,16 +50,16 @@ public class GetUnit implements GetRawData.IProcessRawData{
             if(!jsonUnit.isNull("cost")){
                 JSONObject jsonCost = jsonUnit.getJSONObject("cost");
                 Cost cost = new Cost();
-                if(!jsonUnit.isNull("Wood")){
+                if(!jsonCost.isNull("Wood")){
                     cost.setWood(jsonCost.getInt("Wood"));
                 }
-                if(!jsonUnit.isNull("Food")){
+                if(!jsonCost.isNull("Food")){
                     cost.setFood(jsonCost.getInt("Food"));
                 }
-                if(!jsonUnit.isNull("Stone")){
+                if(!jsonCost.isNull("Stone")){
                     cost.setStone(jsonCost.getInt("Stone"));
                 }
-                if(!jsonUnit.isNull("Gold")){
+                if(!jsonCost.isNull("Gold")){
                     cost.setGold(jsonCost.getInt("Gold"));
                 }
                 unit.setCost(cost);

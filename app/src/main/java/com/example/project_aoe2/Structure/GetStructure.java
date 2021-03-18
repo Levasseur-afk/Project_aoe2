@@ -45,16 +45,16 @@ public class GetStructure implements GetRawData.IProcessRawData{
             if(!jsonStructure.isNull("cost")){
                 JSONObject jsonCost = jsonStructure.getJSONObject("cost");
                 Cost cost = new Cost();
-                if(!jsonStructure.isNull("Wood")){
+                if(!jsonCost.isNull("Wood")){
                     cost.setWood(jsonCost.getInt("Wood"));
                 }
-                if(!jsonStructure.isNull("Food")){
+                if(!jsonCost.isNull("Food")){
                     cost.setFood(jsonCost.getInt("Food"));
                 }
-                if(!jsonStructure.isNull("Stone")){
+                if(!jsonCost.isNull("Stone")){
                     cost.setStone(jsonCost.getInt("Stone"));
                 }
-                if(!jsonStructure.isNull("Gold")){
+                if(!jsonCost.isNull("Gold")){
                     cost.setGold(jsonCost.getInt("Gold"));
                 }
                 structure.setCost(cost);

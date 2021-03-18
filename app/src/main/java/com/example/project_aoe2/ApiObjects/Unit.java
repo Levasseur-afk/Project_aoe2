@@ -223,6 +223,7 @@ public class Unit implements Serializable {
                 ", expansion='" + expansion + '\'' +
                 ", age='" + age + '\'' +
                 ", created_in='" + created_in + '\'' +
+                ", " + cost.toString() +
                 ", build_time=" + build_time +
                 ", reload_time=" + reload_time +
                 ", attack_delay=" + attack_delay +
