@@ -27,7 +27,7 @@ public class CivilizationListActivity extends AppCompatActivity implements GetCi
         setContentView(R.layout.activity_civilization_list);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_civilization);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.recyclerViewAdapterCivilization = new RecyclerViewAdapterCivilization(new ArrayList<Civilization>());
+        this.recyclerViewAdapterCivilization = new RecyclerViewAdapterCivilization(this, new ArrayList<Civilization>());
         recyclerView.setAdapter(this.recyclerViewAdapterCivilization);
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override
