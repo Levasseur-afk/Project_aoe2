@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.project_aoe2.ApiObjects.Civilization;
 import com.example.project_aoe2.R;
+import com.squareup.picasso.Picasso;
 
 
 public class CivilizationDetailActivity extends AppCompatActivity implements GetCivilization.IDisplay{
@@ -27,5 +29,15 @@ public class CivilizationDetailActivity extends AppCompatActivity implements Get
     }
     public void displayCivilization(Civilization civ){
         txt.setText(civ.toString());
+        ImageView img = findViewById(R.id.civ_icon_detail);
+        int id = 0;
+        try {
+            id = R.drawable.class.getField(civ.getName().toLowerCase()).getInt(null);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        img.setImageResource(id);
     }
 }
