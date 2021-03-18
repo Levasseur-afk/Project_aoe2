@@ -46,6 +46,7 @@ public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<Recycl
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
+
         Picasso.with(context).load(id)
                 .error(R.drawable.placeholder)
                 .placeholder(R.drawable.placeholder)

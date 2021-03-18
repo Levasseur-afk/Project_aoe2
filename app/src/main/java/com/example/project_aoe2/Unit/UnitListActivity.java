@@ -28,7 +28,7 @@ public class UnitListActivity extends AppCompatActivity implements GetUnits.IDis
         setContentView(R.layout.activity_unit_list);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_unit);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.recyclerViewAdapterUnit = new RecyclerViewAdapterUnit(new ArrayList<Unit>());
+        this.recyclerViewAdapterUnit = new RecyclerViewAdapterUnit(this, new ArrayList<Unit>());
         recyclerView.setAdapter(this.recyclerViewAdapterUnit);
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override

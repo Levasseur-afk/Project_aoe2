@@ -1,9 +1,11 @@
 package com.example.project_aoe2.Unit;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,13 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project_aoe2.ApiObjects.Unit;
 import com.example.project_aoe2.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class RecyclerViewAdapterUnit extends RecyclerView.Adapter<RecyclerViewAdapterUnit.ItemViewHolder>{
     private List<Unit> unitList;
+    private Context context;
 
-    public RecyclerViewAdapterUnit(List<Unit> unitList){
+    public RecyclerViewAdapterUnit(Context context, List<Unit> unitList){
+        this.context = context;
         this.unitList = unitList;
     }
 
@@ -33,6 +38,24 @@ public class RecyclerViewAdapterUnit extends RecyclerView.Adapter<RecyclerViewAd
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         Unit unit = this.unitList.get(position);
         holder.unit.setText(unit.getName());
+        int id = 0;
+        try {
+            String toReplace[] = {" ", "-", "(", ")"};
+            String name = unit.getName().toLowerCase() + "_aoe2de";
+            for(String ch : toReplace){
+                name = name.replace(ch,"_");
+            }
+            id = R.drawable.class.getField(name).getInt(null);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        Picasso.with(context).load(id)
+                .error(R.drawable.placeholder)
+                .placeholder(R.drawable.placeholder)
+                .into(holder.imageView);
     }
 
     @Override
@@ -51,9 +74,11 @@ public class RecyclerViewAdapterUnit extends RecyclerView.Adapter<RecyclerViewAd
 
     static class ItemViewHolder extends RecyclerView.ViewHolder{
         private final TextView unit;
+        private final ImageView imageView;
         public ItemViewHolder(View itemView){
             super(itemView);
             this.unit = itemView.findViewById(R.id.unit);
+            this.imageView = itemView.findViewById(R.id.unit_icon);
         }
     }
 }

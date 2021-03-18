@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     android:padding="5dip" >
 
+    <ImageView
+        android:id="@+id/unit_icon"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/placeholder"
+        />
     <TextView
         android:id="@+id/unit"
         android:layout_width="wrap_content"
@@ -12,6 +19,7 @@
         android:layout_marginLeft="10dp"
         android:maxLines="3"
         android:textSize="20sp"
+        android:layout_gravity="center_vertical"
         />
 
 </LinearLayout>
