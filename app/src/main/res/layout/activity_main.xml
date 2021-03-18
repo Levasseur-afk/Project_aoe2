@@ -14,7 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/category_civilizations"
-        android:onClick="goToCivilizations"/>
+        android:onClick="goToCivilizations"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        />
 
     <Button
         android:id="@+id/button4"
@@ -22,7 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/category_units"
-        android:onClick="goToUnits"/>
+        android:onClick="goToUnits"
+        android:backgroundTint="@android:color/holo_green_light"/>
 
     <Button
         android:id="@+id/button5"
@@ -30,7 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/category_structures"
-        android:onClick="goToStructures"/>
+        android:onClick="goToStructures"
+        android:backgroundTint="@android:color/holo_blue_bright"/>
 
     <Button
         android:id="@+id/button6"
@@ -38,5 +42,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/category_technologies"
-        android:onClick="goToTechnologies"/>
+        android:onClick="goToTechnologies"
+        android:backgroundTint="@android:color/holo_red_dark"/>
 </LinearLayout>
