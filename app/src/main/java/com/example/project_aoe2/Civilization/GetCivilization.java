@@ -1,8 +1,7 @@
-package com.example.project_aoe2;
-
-import android.util.Log;
+package com.example.project_aoe2.Civilization;
 
 import com.example.project_aoe2.ApiObjects.Civilization;
+import com.example.project_aoe2.Tools.GetRawData;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -1,8 +1,9 @@
-package com.example.project_aoe2;
+package com.example.project_aoe2.Civilization;
 
 import android.util.Log;
 
 import com.example.project_aoe2.ApiObjects.Civilization;
+import com.example.project_aoe2.Tools.GetRawData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +49,7 @@ public class GetCivilizations implements GetRawData.IProcessRawData{
         }
         display.displayCivilization(this.civilizationList);
     }
-    interface IDisplay{
+    public interface IDisplay{
         public void displayCivilization(List<Civilization> civilizationList);
     }
 }

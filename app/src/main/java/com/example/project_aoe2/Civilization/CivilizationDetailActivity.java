@@ -1,4 +1,4 @@
-package com.example.project_aoe2;
+package com.example.project_aoe2.Civilization;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.project_aoe2.ApiObjects.Civilization;
+import com.example.project_aoe2.Civilization.GetCivilization;
+import com.example.project_aoe2.R;
 
 
 public class CivilizationDetailActivity extends AppCompatActivity implements GetCivilization.IDisplay{

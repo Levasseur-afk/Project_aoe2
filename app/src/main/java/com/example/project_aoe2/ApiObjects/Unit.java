@@ -1,5 +1,16 @@
 package com.example.project_aoe2.ApiObjects;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.project_aoe2.R;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -26,9 +37,10 @@ public class Unit implements Serializable {
     private int blast_radius;
 
 
-    public Unit(){
+    public Unit() {
     }
-    public Unit(int id, String name){
+
+    public Unit(int id, String name) {
         this.id = id;
         this.name = name;
     }

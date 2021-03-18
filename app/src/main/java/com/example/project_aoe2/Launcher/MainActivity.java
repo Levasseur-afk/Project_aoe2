@@ -1,18 +1,14 @@
-package com.example.project_aoe2;
+package com.example.project_aoe2.Launcher;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.project_aoe2.ApiObjects.Civilization;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.project_aoe2.Civilization.CivilizationListActivity;
+import com.example.project_aoe2.R;
+import com.example.project_aoe2.Unit.UnitListActivity;
 
 public class MainActivity extends AppCompatActivity{
 

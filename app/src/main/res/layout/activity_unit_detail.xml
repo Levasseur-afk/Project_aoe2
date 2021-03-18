@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CivilizationDetailActivity">
+    tools:context=".Civilization.CivilizationDetailActivity">
 
     <TextView
         android:id="@+id/unit_details"

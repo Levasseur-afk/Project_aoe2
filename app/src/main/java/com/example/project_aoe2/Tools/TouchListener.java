@@ -1,4 +1,4 @@
-package com.example.project_aoe2;
+package com.example.project_aoe2.Tools;
 
 import android.content.Context;
 import android.view.GestureDetector;

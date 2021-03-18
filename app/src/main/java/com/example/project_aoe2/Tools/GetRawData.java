@@ -1,4 +1,4 @@
-package com.example.project_aoe2;
+package com.example.project_aoe2.Tools;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -71,7 +71,7 @@ public class GetRawData {
             return buffer.toString();
         }
     }
-    interface IProcessRawData{
+    public interface IProcessRawData{
         public void processRawData(String json);
     }
 }

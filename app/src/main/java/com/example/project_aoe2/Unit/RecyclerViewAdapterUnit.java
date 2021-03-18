@@ -1,4 +1,4 @@
-package com.example.project_aoe2;
+package com.example.project_aoe2.Unit;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.project_aoe2.ApiObjects.Unit;
+import com.example.project_aoe2.R;
 
 import java.util.List;
 

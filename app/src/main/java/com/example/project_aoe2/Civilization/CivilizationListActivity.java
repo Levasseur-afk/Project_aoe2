@@ -1,4 +1,4 @@
-package com.example.project_aoe2;
+package com.example.project_aoe2.Civilization;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,14 +10,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.project_aoe2.ApiObjects.Civilization;
+import com.example.project_aoe2.ApiObjects.Unit;
+import com.example.project_aoe2.R;
+import com.example.project_aoe2.Tools.TouchListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CivilizationListActivity extends AppCompatActivity implements GetCivilizations.IDisplay{
+public class CivilizationListActivity extends AppCompatActivity implements GetCivilizations.IDisplay {
 
     private RecyclerView recyclerView;
-    private RecyclerViewAdapterCivilization recyclerViewAdapterCivilization;
+    private Unit.RecyclerViewAdapterCivilization recyclerViewAdapterCivilization;
     private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,7 @@ public class CivilizationListActivity extends AppCompatActivity implements GetCi
         setContentView(R.layout.activity_civilization_list);
         recyclerView = (RecyclerView) findViewById(R.id.recycle_view_civilization);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.recyclerViewAdapterCivilization = new RecyclerViewAdapterCivilization(this, new ArrayList<Civilization>());
+        this.recyclerViewAdapterCivilization = new Unit.RecyclerViewAdapterCivilization(this, new ArrayList<Civilization>());
         recyclerView.setAdapter(this.recyclerViewAdapterCivilization);
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override

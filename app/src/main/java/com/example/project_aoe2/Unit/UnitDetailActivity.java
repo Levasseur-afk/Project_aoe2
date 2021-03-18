@@ -1,4 +1,4 @@
-package com.example.project_aoe2;
+package com.example.project_aoe2.Unit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.project_aoe2.ApiObjects.Unit;
+import com.example.project_aoe2.R;
+import com.example.project_aoe2.Unit.GetUnit;
 
 
 public class UnitDetailActivity extends AppCompatActivity implements GetUnit.IDisplay{

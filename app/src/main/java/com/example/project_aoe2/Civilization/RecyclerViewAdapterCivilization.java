@@ -1,4 +1,4 @@
-package com.example.project_aoe2;
+package com.example.project_aoe2.Civilization;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project_aoe2.ApiObjects.Civilization;
+import com.example.project_aoe2.R;
 
 import java.util.List;
 
@@ -62,3 +63,4 @@ public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<Recycl
         return civilizationList;
     }
 }
+
