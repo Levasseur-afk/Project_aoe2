@@ -25,36 +25,49 @@ public class GetCivilization implements GetRawData.IProcessRawData{
     public void processRawData(String json){
         try {
             JSONObject jsonCivilization = new JSONObject(json);
-
-            int id = jsonCivilization.getInt("id");
-            String name = jsonCivilization.getString("name");
-            String expansion = jsonCivilization.getString("expansion");
-            String army_type = jsonCivilization.getString("army_type");
-
-            List<String> unique_unit = new ArrayList<String>();
-            JSONArray units = jsonCivilization.getJSONArray("unique_unit");
-            for(int j = 0; j < units.length(); j++){
-                unique_unit.add(units.getString(j));
+            Civilization civilization = new Civilization();
+            if(!jsonCivilization.isNull("id")){
+                civilization.setId(jsonCivilization.getInt("id"));
             }
-            List<String> unique_tech = new ArrayList<String>();
-            JSONArray techs = jsonCivilization.getJSONArray("unique_tech");
-            for(int j = 0; j < techs.length(); j++){
-                unique_tech.add(techs.getString(j));
+            if(!jsonCivilization.isNull("name")){
+                civilization.setName(jsonCivilization.getString("name"));
             }
-            String team_bonus = jsonCivilization.getString("team_bonus");
-
-            List<String> civilization_bonus = new ArrayList<String>();
-            JSONArray bonus = jsonCivilization.getJSONArray("civilization_bonus");
-            for(int j = 0; j < bonus.length(); j++){
-                civilization_bonus.add(bonus.getString(j));
+            if(!jsonCivilization.isNull("expansion")){
+                civilization.setExpansion(jsonCivilization.getString("expansion"));
             }
-            // create Civilization object
-            civilization = new Civilization(id, name, expansion, army_type, unique_unit, unique_tech, team_bonus, civilization_bonus);
-
+            if(!jsonCivilization.isNull("army_type")){
+                civilization.setArmy_type(jsonCivilization.getString("army_type"));
+            }
+            if(!jsonCivilization.isNull("unique_unit")){
+                List<String> unique_unit = new ArrayList<String>();
+                JSONArray units = jsonCivilization.getJSONArray("unique_unit");
+                for(int j = 0; j < units.length(); j++){
+                    unique_unit.add(units.getString(j));
+                }
+                civilization.setUnique_unit(unique_unit);
+            }
+            if(!jsonCivilization.isNull("unique_tech")){
+                List<String> unique_tech = new ArrayList<String>();
+                JSONArray techs = jsonCivilization.getJSONArray("unique_tech");
+                for(int j = 0; j < techs.length(); j++){
+                    unique_tech.add(techs.getString(j));
+                }
+                civilization.setUnique_tech(unique_tech);
+            }
+            if(!jsonCivilization.isNull("team_bonus")){
+                civilization.setTeam_bonus(jsonCivilization.getString("team_bonus"));
+            }
+            if(!jsonCivilization.isNull("civilization_bonus")){
+                List<String> civilization_bonus = new ArrayList<String>();
+                JSONArray bonus = jsonCivilization.getJSONArray("civilization_bonus");
+                for(int j = 0; j < bonus.length(); j++){
+                    civilization_bonus.add(bonus.getString(j));
+                }
+                civilization.setCivilization_bonus(civilization_bonus);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         display.displayCivilization(civilization);
     }
     interface IDisplay{
