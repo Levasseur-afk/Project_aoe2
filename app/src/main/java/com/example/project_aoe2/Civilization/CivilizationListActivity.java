@@ -18,7 +18,6 @@ import java.util.List;
 
 public class CivilizationListActivity extends AppCompatActivity implements GetCivilizations.IDisplay {
 
-    private RecyclerView recyclerView;
     private RecyclerViewAdapterCivilization recyclerViewAdapterCivilization;
     private Context context;
     @Override
@@ -26,9 +25,9 @@ public class CivilizationListActivity extends AppCompatActivity implements GetCi
         super.onCreate(savedInstanceState);
         this.context = this;
         setContentView(R.layout.activity_civilization_list);
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_view_civilization);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_civilization);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.recyclerViewAdapterCivilization = new RecyclerViewAdapterCivilization(this, new ArrayList<Civilization>());
+        this.recyclerViewAdapterCivilization = new RecyclerViewAdapterCivilization(new ArrayList<Civilization>());
         recyclerView.setAdapter(this.recyclerViewAdapterCivilization);
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override

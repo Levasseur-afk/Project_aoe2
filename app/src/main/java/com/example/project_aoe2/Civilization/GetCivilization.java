@@ -12,7 +12,7 @@ import java.util.List;
 
 public class GetCivilization implements GetRawData.IProcessRawData{
     private Civilization civilization;
-    private IDisplay display;
+    private final IDisplay display;
 
     public GetCivilization(String url, IDisplay context){
         this.display = context;
@@ -70,6 +70,6 @@ public class GetCivilization implements GetRawData.IProcessRawData{
         display.displayCivilization(civilization);
     }
     public interface IDisplay{
-        public void displayCivilization(Civilization civilization);
+        void displayCivilization(Civilization civilization);
     }
 }

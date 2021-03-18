@@ -22,9 +22,9 @@ public class UnitDetailActivity extends AppCompatActivity implements GetUnit.IDi
 
         Intent intent = getIntent();
         Unit unit = (Unit) intent.getSerializableExtra("unit");
-        String url = "https://age-of-empires-2-api.herokuapp.com/api/v1/unit/" + Integer.toString(unit.getId());
-        GetUnit getUnit = new GetUnit(url, this);
-        txt = (TextView) findViewById(R.id.unit_details);
+        String url = "https://age-of-empires-2-api.herokuapp.com/api/v1/unit/" + unit.getId();
+        new GetUnit(url, this);
+        txt = findViewById(R.id.unit_details);
     }
 
     public void displayUnit(Unit unit){

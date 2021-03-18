@@ -13,7 +13,7 @@ import java.util.List;
 
 public class GetTechnology implements GetRawData.IProcessRawData{
     private Technology technology;
-    private IDisplay display;
+    private final IDisplay display;
 
     public GetTechnology(String url, IDisplay context){
         this.display = context;
@@ -78,6 +78,6 @@ public class GetTechnology implements GetRawData.IProcessRawData{
         display.displayTechnology(technology);
     }
     interface IDisplay{
-        public void displayTechnology(Technology technology);
+        void displayTechnology(Technology technology);
     }
 }

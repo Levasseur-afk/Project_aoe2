@@ -1,6 +1,6 @@
 package com.example.project_aoe2.Structure;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +15,17 @@ import com.example.project_aoe2.R;
 import java.util.List;
 
 public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerViewAdapterStructure.ItemViewHolder>{
-    private Context context;
     private List<Structure> structureList;
 
-    public RecyclerViewAdapterStructure(Context context, List<Structure> structureList){
-        this.context = context;
+    public RecyclerViewAdapterStructure(List<Structure> structureList){
         this.structureList = structureList;
     }
 
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.structure, null);
-        ItemViewHolder itemViewHolder = new RecyclerViewAdapterStructure.ItemViewHolder(v);
-        return itemViewHolder;
+        @SuppressLint("InflateParams") View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.structure, null);
+        return new ItemViewHolder(v);
     }
 
     @Override
@@ -51,11 +48,11 @@ public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerV
         notifyDataSetChanged();
     }
 
-    class ItemViewHolder extends RecyclerView.ViewHolder{
-        private TextView structure;
+    static class ItemViewHolder extends RecyclerView.ViewHolder{
+        private final TextView structure;
         public ItemViewHolder(View itemView){
             super(itemView);
-            this.structure = (TextView) itemView.findViewById(R.id.structure);
+            this.structure = itemView.findViewById(R.id.structure);
         }
     }
 

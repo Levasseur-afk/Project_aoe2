@@ -1,6 +1,6 @@
 package com.example.project_aoe2.Civilization;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +15,17 @@ import com.example.project_aoe2.R;
 import java.util.List;
 
 public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<RecyclerViewAdapterCivilization.ItemViewHolder>{
-    private Context context;
     private List<Civilization> civilizationList;
 
-    public RecyclerViewAdapterCivilization(Context context, List<Civilization> civilizationList){
-        this.context = context;
+    public RecyclerViewAdapterCivilization(List<Civilization> civilizationList){
         this.civilizationList = civilizationList;
     }
 
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.civilization, null);
-        ItemViewHolder itemViewHolder = new ItemViewHolder(v);
-        return itemViewHolder;
+        @SuppressLint("InflateParams") View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.civilization, null);
+        return new ItemViewHolder(v);
     }
 
     @Override
@@ -51,11 +48,11 @@ public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<Recycl
         notifyDataSetChanged();
     }
 
-    class ItemViewHolder extends RecyclerView.ViewHolder{
-        private TextView civilization;
+    static class ItemViewHolder extends RecyclerView.ViewHolder{
+        private final TextView civilization;
         public ItemViewHolder(View itemView){
             super(itemView);
-            this.civilization = (TextView) itemView.findViewById(R.id.civilization);
+            this.civilization = itemView.findViewById(R.id.civilization);
         }
     }
 

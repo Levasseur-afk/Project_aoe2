@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GetCivilizations implements GetRawData.IProcessRawData{
-    private List<Civilization> civilizationList;
-    private IDisplay display;
+    private final List<Civilization> civilizationList;
+    private final IDisplay display;
 
     public GetCivilizations(String url, IDisplay context){
         this.civilizationList = new ArrayList<Civilization>();
@@ -45,6 +45,6 @@ public class GetCivilizations implements GetRawData.IProcessRawData{
         display.displayCivilization(this.civilizationList);
     }
     public interface IDisplay{
-        public void displayCivilization(List<Civilization> civilizationList);
+        void displayCivilization(List<Civilization> civilizationList);
     }
 }

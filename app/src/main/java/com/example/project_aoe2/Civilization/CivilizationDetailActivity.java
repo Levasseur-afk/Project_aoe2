@@ -20,9 +20,9 @@ public class CivilizationDetailActivity extends AppCompatActivity implements Get
 
         Intent intent = getIntent();
         Civilization civ = (Civilization) intent.getSerializableExtra("civ");
-        String url = "https://age-of-empires-2-api.herokuapp.com/api/v1/civilization/" + Integer.toString(civ.getId());
-        GetCivilization getCivilization = new GetCivilization(url, this);
-        txt = (TextView) findViewById(R.id.civ_details);
+        String url = "https://age-of-empires-2-api.herokuapp.com/api/v1/civilization/" + civ.getId();
+        new GetCivilization(url, this);
+        txt = findViewById(R.id.civ_details);
 
     }
     public void displayCivilization(Civilization civ){

@@ -1,6 +1,6 @@
 package com.example.project_aoe2.Unit;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,20 +16,17 @@ import com.example.project_aoe2.R;
 import java.util.List;
 
 public class RecyclerViewAdapterUnit extends RecyclerView.Adapter<RecyclerViewAdapterUnit.ItemViewHolder>{
-    private Context context;
     private List<Unit> unitList;
 
-    public RecyclerViewAdapterUnit(Context context, List<Unit> unitList){
-        this.context = context;
+    public RecyclerViewAdapterUnit(List<Unit> unitList){
         this.unitList = unitList;
     }
 
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.unit, null);
-        ItemViewHolder itemViewHolder = new ItemViewHolder(v);
-        return itemViewHolder;
+        @SuppressLint("InflateParams") View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.unit, null);
+        return new ItemViewHolder(v);
     }
 
     @Override
@@ -52,11 +49,11 @@ public class RecyclerViewAdapterUnit extends RecyclerView.Adapter<RecyclerViewAd
         notifyDataSetChanged();
     }
 
-    class ItemViewHolder extends RecyclerView.ViewHolder{
-        private TextView unit;
+    static class ItemViewHolder extends RecyclerView.ViewHolder{
+        private final TextView unit;
         public ItemViewHolder(View itemView){
             super(itemView);
-            this.unit = (TextView) itemView.findViewById(R.id.unit);
+            this.unit = itemView.findViewById(R.id.unit);
         }
     }
 }

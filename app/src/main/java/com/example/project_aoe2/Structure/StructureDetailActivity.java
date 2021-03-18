@@ -21,9 +21,9 @@ public class StructureDetailActivity extends AppCompatActivity implements GetStr
 
         Intent intent = getIntent();
         Structure structure = (Structure) intent.getSerializableExtra("structure");
-        String url = "https://age-of-empires-2-api.herokuapp.com/api/v1/structure/" + Integer.toString(structure.getId());
-        GetStructure getStructure = new GetStructure(url, this);
-        txt = (TextView) findViewById(R.id.structure_details);
+        String url = "https://age-of-empires-2-api.herokuapp.com/api/v1/structure/" + structure.getId();
+        new GetStructure(url, this);
+        txt = findViewById(R.id.structure_details);
 
     }
     public void displayStructure(Structure structure){

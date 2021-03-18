@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GetTechnologies implements GetRawData.IProcessRawData{
-    private List<Technology> technologyList;
-    private IDisplay display;
+    private final List<Technology> technologyList;
+    private final IDisplay display;
 
     public GetTechnologies(String url, IDisplay context){
         this.technologyList = new ArrayList<Technology>();
@@ -45,6 +45,6 @@ public class GetTechnologies implements GetRawData.IProcessRawData{
         display.displayTechnology(this.technologyList);
     }
     public interface IDisplay{
-        public void displayTechnology(List<Technology> technologyList);
+        void displayTechnology(List<Technology> technologyList);
     }
 }

@@ -20,7 +20,6 @@ import java.util.List;
 
 public class StructureListActivity extends AppCompatActivity implements GetStructures.IDisplay {
 
-    private RecyclerView recyclerView;
     private RecyclerViewAdapterStructure recyclerViewAdapterStructure;
     private Context context;
     @Override
@@ -28,9 +27,9 @@ public class StructureListActivity extends AppCompatActivity implements GetStruc
         super.onCreate(savedInstanceState);
         this.context = this;
         setContentView(R.layout.activity_structure_list);
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_view_structure);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_structure);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.recyclerViewAdapterStructure = new RecyclerViewAdapterStructure(this, new ArrayList<Structure>());
+        this.recyclerViewAdapterStructure = new RecyclerViewAdapterStructure(new ArrayList<Structure>());
         recyclerView.setAdapter(this.recyclerViewAdapterStructure);
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override

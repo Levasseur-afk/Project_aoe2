@@ -20,7 +20,6 @@ import java.util.List;
 
 public class TechnologyListActivity extends AppCompatActivity implements GetTechnologies.IDisplay {
 
-    private RecyclerView recyclerView;
     private RecyclerViewAdapterTechnology recyclerViewAdapterTechnology;
     private Context context;
     @Override
@@ -28,9 +27,9 @@ public class TechnologyListActivity extends AppCompatActivity implements GetTech
         super.onCreate(savedInstanceState);
         this.context = this;
         setContentView(R.layout.activity_technology_list);
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_view_technology);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_technology);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.recyclerViewAdapterTechnology = new RecyclerViewAdapterTechnology(this, new ArrayList<Technology>());
+        this.recyclerViewAdapterTechnology = new RecyclerViewAdapterTechnology(new ArrayList<Technology>());
         recyclerView.setAdapter(this.recyclerViewAdapterTechnology);
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override

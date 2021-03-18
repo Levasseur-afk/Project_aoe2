@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GetUnits implements GetRawData.IProcessRawData{
-    private List<Unit> unitList;
-    private IDisplay display;
+    private final List<Unit> unitList;
+    private final IDisplay display;
 
     public GetUnits(String url, IDisplay context){
         this.unitList = new ArrayList<Unit>();
@@ -46,6 +46,6 @@ public class GetUnits implements GetRawData.IProcessRawData{
         display.displayUnit(this.unitList);
     }
     interface IDisplay{
-        public void displayUnit(List<Unit> unitList);
+        void displayUnit(List<Unit> unitList);
     }
 }

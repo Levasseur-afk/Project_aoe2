@@ -19,9 +19,9 @@ public class TechnologyDetailActivity extends AppCompatActivity implements GetTe
 
         Intent intent = getIntent();
         Technology technology = (Technology) intent.getSerializableExtra("technology");
-        String url = "https://age-of-empires-2-api.herokuapp.com/api/v1/technology/" + Integer.toString(technology.getId());
-        GetTechnology getTechnology = new GetTechnology(url, this);
-        txt = (TextView) findViewById(R.id.technology_details);
+        String url = "https://age-of-empires-2-api.herokuapp.com/api/v1/technology/" + technology.getId();
+        new GetTechnology(url, this);
+        txt = findViewById(R.id.technology_details);
 
     }
     public void displayTechnology(Technology technology){

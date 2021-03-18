@@ -1,6 +1,6 @@
 package com.example.project_aoe2.Technology;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +15,17 @@ import com.example.project_aoe2.R;
 import java.util.List;
 
 public class RecyclerViewAdapterTechnology extends RecyclerView.Adapter<RecyclerViewAdapterTechnology.ItemViewHolder>{
-    private Context context;
     private List<Technology> technologyList;
 
-    public RecyclerViewAdapterTechnology(Context context, List<Technology> technologyList){
-        this.context = context;
+    public RecyclerViewAdapterTechnology(List<Technology> technologyList){
         this.technologyList = technologyList;
     }
 
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.technology, null);
-        ItemViewHolder itemViewHolder = new ItemViewHolder(v);
-        return itemViewHolder;
+        @SuppressLint("InflateParams") View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.technology, null);
+        return new ItemViewHolder(v);
     }
 
     @Override
@@ -51,11 +48,11 @@ public class RecyclerViewAdapterTechnology extends RecyclerView.Adapter<Recycler
         notifyDataSetChanged();
     }
 
-    class ItemViewHolder extends RecyclerView.ViewHolder{
-        private TextView technology;
+    static class ItemViewHolder extends RecyclerView.ViewHolder{
+        private final TextView technology;
         public ItemViewHolder(View itemView){
             super(itemView);
-            this.technology = (TextView) itemView.findViewById(R.id.technology);
+            this.technology = itemView.findViewById(R.id.technology);
         }
     }
 

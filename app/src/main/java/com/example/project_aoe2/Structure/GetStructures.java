@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GetStructures implements GetRawData.IProcessRawData{
-    private List<Structure> structureList;
-    private IDisplay display;
+    private final List<Structure> structureList;
+    private final IDisplay display;
 
     public GetStructures(String url, IDisplay context){
         this.structureList = new ArrayList<Structure>();
@@ -46,6 +46,6 @@ public class GetStructures implements GetRawData.IProcessRawData{
         display.displayStructure(this.structureList);
     }
     public interface IDisplay{
-        public void displayStructure(List<Structure> structureList);
+        void displayStructure(List<Structure> structureList);
     }
 }

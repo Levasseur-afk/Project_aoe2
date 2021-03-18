@@ -19,7 +19,6 @@ import java.util.List;
 
 public class UnitListActivity extends AppCompatActivity implements GetUnits.IDisplay{
 
-    private RecyclerView recyclerView;
     private RecyclerViewAdapterUnit recyclerViewAdapterUnit;
     private Context context;
     @Override
@@ -27,9 +26,9 @@ public class UnitListActivity extends AppCompatActivity implements GetUnits.IDis
         super.onCreate(savedInstanceState);
         this.context = this;
         setContentView(R.layout.activity_unit_list);
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_view_unit);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_unit);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.recyclerViewAdapterUnit = new RecyclerViewAdapterUnit(this, new ArrayList<Unit>());
+        this.recyclerViewAdapterUnit = new RecyclerViewAdapterUnit(new ArrayList<Unit>());
         recyclerView.setAdapter(this.recyclerViewAdapterUnit);
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override

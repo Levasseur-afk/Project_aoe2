@@ -14,7 +14,7 @@ import java.util.List;
 
 public class GetStructure implements GetRawData.IProcessRawData{
     private Structure structure;
-    private IDisplay display;
+    private final IDisplay display;
 
     public GetStructure(String url, GetStructure.IDisplay context){
         this.display = context;
@@ -95,6 +95,6 @@ public class GetStructure implements GetRawData.IProcessRawData{
         display.displayStructure(structure);
     }
     interface IDisplay{
-        public void displayStructure(Structure structure);
+        void displayStructure(Structure structure);
     }
 }

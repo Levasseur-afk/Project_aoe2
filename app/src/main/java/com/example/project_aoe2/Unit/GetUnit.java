@@ -13,7 +13,7 @@ import java.util.List;
 
 public class GetUnit implements GetRawData.IProcessRawData{
     private Unit unit;
-    private IDisplay display;
+    private final IDisplay display;
 
     public GetUnit(String url, IDisplay context){
         this.display = context;
@@ -123,6 +123,6 @@ public class GetUnit implements GetRawData.IProcessRawData{
         display.displayUnit(this.unit);
     }
     interface IDisplay{
-        public void displayUnit(Unit unit);
+        void displayUnit(Unit unit);
     }
 }
