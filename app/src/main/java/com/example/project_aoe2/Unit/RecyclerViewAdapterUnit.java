@@ -59,8 +59,4 @@ public class RecyclerViewAdapterUnit extends RecyclerView.Adapter<RecyclerViewAd
             this.unit = (TextView) itemView.findViewById(R.id.unit);
         }
     }
-
-    public List<Unit> getUnitList() {
-        return unitList;
-    }
 }

@@ -29,7 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/category_structures" />
+        android:text="@string/category_structures"
+        android:onClick="goToStructures"/>
 
     <Button
         android:id="@+id/button6"

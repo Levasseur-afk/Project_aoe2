@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.project_aoe2.ApiObjects.Unit;
 import com.example.project_aoe2.R;
-import com.example.project_aoe2.Unit.GetUnit;
+
 
 
 public class UnitDetailActivity extends AppCompatActivity implements GetUnit.IDisplay{

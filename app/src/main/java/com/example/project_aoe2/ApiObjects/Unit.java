@@ -21,6 +21,7 @@ public class Unit implements Serializable {
     private String expansion;
     private String age;
     private String created_in;
+    private Cost cost;
     private int build_time;
     private int reload_time;
     private int attack_delay;
@@ -91,6 +92,14 @@ public class Unit implements Serializable {
 
     public void setCreated_in(String created_in) {
         this.created_in = created_in;
+    }
+
+    public Cost getCost() {
+        return cost;
+    }
+
+    public void setCost(Cost cost) {
+        this.cost = cost;
     }
 
     public int getBuild_time() {

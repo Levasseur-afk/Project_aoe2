@@ -1,7 +1,5 @@
 package com.example.project_aoe2.Civilization;
 
-import android.util.Log;
-
 import com.example.project_aoe2.ApiObjects.Civilization;
 import com.example.project_aoe2.Tools.GetRawData;
 
@@ -43,9 +41,6 @@ public class GetCivilizations implements GetRawData.IProcessRawData{
             }
         } catch (JSONException e) {
             e.printStackTrace();
-        }
-        for(Civilization civ : civilizationList){
-            Log.d("CIV", civ.toString());
         }
         display.displayCivilization(this.civilizationList);
     }

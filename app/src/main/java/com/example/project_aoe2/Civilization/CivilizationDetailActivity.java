@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.project_aoe2.ApiObjects.Civilization;
-import com.example.project_aoe2.Civilization.GetCivilization;
 import com.example.project_aoe2.R;
 
 

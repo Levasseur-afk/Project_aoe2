@@ -62,6 +62,7 @@ public class GetUnit implements GetRawData.IProcessRawData{
                 if(!jsonUnit.isNull("Gold")){
                     cost.setGold(jsonCost.getInt("Gold"));
                 }
+                unit.setCost(cost);
             }
             if(!jsonUnit.isNull("build_time")){
                 unit.setBuild_time(jsonUnit.getInt("build_time"));

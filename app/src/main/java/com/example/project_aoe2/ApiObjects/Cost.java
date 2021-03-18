@@ -47,4 +47,9 @@ public class Cost implements Serializable {
     public void setGold(int gold) {
         Gold = gold;
     }
+
+    @Override
+    public String toString() {
+        return "Cost{ }";
+    }
 }

@@ -24,7 +24,7 @@ public class GetCivilization implements GetRawData.IProcessRawData{
     public void processRawData(String json){
         try {
             JSONObject jsonCivilization = new JSONObject(json);
-            Civilization civilization = new Civilization();
+            civilization = new Civilization();
             if(!jsonCivilization.isNull("id")){
                 civilization.setId(jsonCivilization.getInt("id"));
             }
@@ -69,7 +69,7 @@ public class GetCivilization implements GetRawData.IProcessRawData{
         }
         display.displayCivilization(civilization);
     }
-    interface IDisplay{
+    public interface IDisplay{
         public void displayCivilization(Civilization civilization);
     }
 }

@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_aoe2">
-        <activity android:name=".Unit.UnitDetailActivity"></activity>
+        <activity android:name=".Structure.StructureDetailActivity"></activity>
+        <activity android:name=".Structure.StructureListActivity" />
+        <activity android:name=".Unit.UnitDetailActivity" />
         <activity android:name=".Unit.UnitListActivity" />
         <activity android:name=".Civilization.CivilizationListActivity" />
         <activity android:name=".Civilization.CivilizationDetailActivity" />

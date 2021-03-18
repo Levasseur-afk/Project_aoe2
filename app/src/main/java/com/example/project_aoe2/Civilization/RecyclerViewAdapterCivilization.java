@@ -59,8 +59,5 @@ public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<Recycl
         }
     }
 
-    public List<Civilization> getCivilizationList() {
-        return civilizationList;
-    }
 }
 

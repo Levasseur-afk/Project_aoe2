@@ -13,9 +13,6 @@ import android.view.View;
 import com.example.project_aoe2.ApiObjects.Unit;
 import com.example.project_aoe2.R;
 import com.example.project_aoe2.Tools.TouchListener;
-import com.example.project_aoe2.Unit.GetUnits;
-import com.example.project_aoe2.Unit.RecyclerViewAdapterUnit;
-import com.example.project_aoe2.Unit.UnitDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;

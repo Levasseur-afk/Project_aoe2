@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.project_aoe2.Civilization.CivilizationListActivity;
 import com.example.project_aoe2.R;
+import com.example.project_aoe2.Structure.StructureListActivity;
 import com.example.project_aoe2.Unit.UnitListActivity;
 
 public class MainActivity extends AppCompatActivity{
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
     }
     public void goToStructures(View v){
-
+        Intent intent = new Intent(this, StructureListActivity.class);
+        startActivity(intent);
     }
     public void goToTechnologies(View v){
 

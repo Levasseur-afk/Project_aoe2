@@ -1,8 +1,9 @@
 package com.example.project_aoe2.ApiObjects;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Structure {
+public class Structure implements Serializable {
     private int id;
     private String name;
     private String description;
@@ -11,28 +12,18 @@ public class Structure {
     private Cost cost;
     private int build_time;
     private int hit_points;
-    private int line_of_sights;
+    private int line_of_sight;
     private String armor;
     private String range;
     private int reload_time;
     private int attack;
     private List<String> special;
 
-    public Structure(int id, String name, String description, String expansion, String age, Cost cost, int build_time, int hit_points, int line_of_sights, String armor, String range, int reload_time, int attack, List<String> special) {
+    public Structure(){}
+
+    public Structure(int id, String name){
         this.id = id;
         this.name = name;
-        this.description = description;
-        this.expansion = expansion;
-        this.age = age;
-        this.cost = cost;
-        this.build_time = build_time;
-        this.hit_points = hit_points;
-        this.line_of_sights = line_of_sights;
-        this.armor = armor;
-        this.range = range;
-        this.reload_time = reload_time;
-        this.attack = attack;
-        this.special = special;
     }
 
     public int getId() {
@@ -99,12 +90,12 @@ public class Structure {
         this.hit_points = hit_points;
     }
 
-    public int getLine_of_sights() {
-        return line_of_sights;
+    public int getLine_of_sight() {
+        return line_of_sight;
     }
 
-    public void setLine_of_sights(int line_of_sights) {
-        this.line_of_sights = line_of_sights;
+    public void setLine_of_sight(int line_of_sight) {
+        this.line_of_sight = line_of_sight;
     }
 
     public String getArmor() {
@@ -145,5 +136,25 @@ public class Structure {
 
     public void setSpecial(List<String> special) {
         this.special = special;
+    }
+
+    @Override
+    public String toString() {
+        return "Structure{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", expansion='" + expansion + '\'' +
+                ", age='" + age + '\'' +
+                ", cost=" + cost +
+                ", build_time=" + build_time +
+                ", hit_points=" + hit_points +
+                ", line_of_sight=" + line_of_sight +
+                ", armor='" + armor + '\'' +
+                ", range='" + range + '\'' +
+                ", reload_time=" + reload_time +
+                ", attack=" + attack +
+                ", special=" + special +
+                '}';
     }
 }
