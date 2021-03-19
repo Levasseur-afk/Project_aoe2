@@ -1,9 +1,11 @@
 package com.example.project_aoe2.Structure;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,13 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project_aoe2.ApiObjects.Structure;
 import com.example.project_aoe2.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerViewAdapterStructure.ItemViewHolder>{
+    private Context context;
     private List<Structure> structureList;
 
-    public RecyclerViewAdapterStructure(List<Structure> structureList){
+    public RecyclerViewAdapterStructure(Context context, List<Structure> structureList){
+        this.context = context;
         this.structureList = structureList;
     }
 
@@ -32,6 +37,24 @@ public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerV
     public void onBindViewHolder(@NonNull RecyclerViewAdapterStructure.ItemViewHolder holder, int position) {
         Structure structure = this.structureList.get(position);
         holder.structure.setText(structure.getName());
+        int id = 0;
+        try {
+            String toReplace[] = {" ", "-", "(", ")"};
+            String name = structure.getName().toLowerCase() + "_aoe2de";
+            for(String ch : toReplace){
+                name = name.replace(ch,"_");
+            }
+            id = R.drawable.class.getField(name).getInt(null);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        Picasso.with(context).load(id)
+                .error(R.drawable.placeholder)
+                .placeholder(R.drawable.placeholder)
+                .into(holder.imageView);
     }
 
     @Override
@@ -49,9 +72,11 @@ public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerV
     }
 
     static class ItemViewHolder extends RecyclerView.ViewHolder{
+        private final ImageView imageView;
         private final TextView structure;
         public ItemViewHolder(View itemView){
             super(itemView);
+            this.imageView = itemView.findViewById(R.id.structure_icon);
             this.structure = itemView.findViewById(R.id.structure);
         }
     }

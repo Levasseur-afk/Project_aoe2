@@ -10,6 +10,7 @@
         android:layout_width="80dp"
         android:layout_height="60dp"
         android:scaleType="fitStart"
+        android:layout_marginStart="10dp"
         android:src="@drawable/placeholder"
         />
 
@@ -17,10 +18,11 @@
         android:id="@+id/civilization"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_gravity="center_vertical"
         android:maxLines="3"
         android:textSize="20sp"
+        android:fontFamily="@font/lobster"
         />
 
 </LinearLayout>

@@ -4,4 +4,8 @@
     <string name="category_units">Units</string>
     <string name="category_structures">Structures</string>
     <string name="category_technologies">Technologies</string>
+    <string name="expansion">Expansion : </string>
+    <string name="unique_units">Unique Units : </string>
+    <string name="unique_technologies">Unique Technologies : </string>
+
 </resources>

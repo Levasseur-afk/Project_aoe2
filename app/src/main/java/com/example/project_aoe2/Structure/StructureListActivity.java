@@ -1,6 +1,7 @@
 package com.example.project_aoe2.Structure;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,7 +30,8 @@ public class StructureListActivity extends AppCompatActivity implements GetStruc
         setContentView(R.layout.activity_structure_list);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_structure);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.recyclerViewAdapterStructure = new RecyclerViewAdapterStructure(new ArrayList<Structure>());
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+        this.recyclerViewAdapterStructure = new RecyclerViewAdapterStructure(this, new ArrayList<Structure>());
         recyclerView.setAdapter(this.recyclerViewAdapterStructure);
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override

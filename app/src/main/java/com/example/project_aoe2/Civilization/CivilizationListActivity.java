@@ -1,6 +1,7 @@
 package com.example.project_aoe2.Civilization;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +28,7 @@ public class CivilizationListActivity extends AppCompatActivity implements GetCi
         setContentView(R.layout.activity_civilization_list);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_civilization);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         this.recyclerViewAdapterCivilization = new RecyclerViewAdapterCivilization(this, new ArrayList<Civilization>());
         recyclerView.setAdapter(this.recyclerViewAdapterCivilization);
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
