@@ -8,5 +8,6 @@
     <string name="unique_units">Unique Units : </string>
     <string name="unique_technologies">Unique Technologies : </string>
     <string name="civ_bonus_txt">Civilization bonus : </string>
+    <string name="age">Age : </string>
 
 </resources>
