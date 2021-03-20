@@ -9,5 +9,6 @@
     <string name="unique_technologies">Unique Technologies : </string>
     <string name="civ_bonus_txt">Civilization bonus : </string>
     <string name="age">Age : </string>
+    <string name="created_in">Created in : </string>
 
 </resources>

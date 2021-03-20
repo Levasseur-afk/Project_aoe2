@@ -34,7 +34,7 @@ public class StructureDetailActivity extends AppCompatActivity implements GetStr
         ImageView img = findViewById(R.id.structure_icon_detail);
         int id = 0;
         try {
-            id = R.drawable.class.getField(structure.getName().toLowerCase()+ "_aoe2de").getInt(null);
+            id = R.drawable.class.getField(structure.getName().toLowerCase().replace(" ", "_")+ "_aoe2de").getInt(null);
         } catch (IllegalAccessException | NoSuchFieldException e) {
             e.printStackTrace();
         }
@@ -79,7 +79,7 @@ public class StructureDetailActivity extends AppCompatActivity implements GetStr
         if(cost.getGold() != 0){
             text += "<strong><font color=#d4af37>" + cost.getGold() + " gold  " + "</font></strong>";
         }
-        TextView cost_txtView = findViewById(R.id.cost_txt_view);
+        TextView cost_txtView = findViewById(R.id.cost_structure_txt_view);
         cost_txtView.setText(Html.fromHtml(text));
 
         text = "Build Time : <strong><font color=#03ac13>" + structure.getBuild_time() + "</font></strong>";
@@ -98,31 +98,36 @@ public class StructureDetailActivity extends AppCompatActivity implements GetStr
         TextView armor = findViewById(R.id.structure_armor);
         armor.setText(Html.fromHtml(text));
 
+        LinearLayout structure_layout = findViewById(R.id.structure_layout);
         if(structure.getRange() != null && !structure.getRange().isEmpty()){
             text = "Range(min-max) : <strong><font color=#03ac13>" + structure.getRange() + "</font></strong>";
-            TextView range = findViewById(R.id.structure_range);
-            range.setText(Html.fromHtml(text));
+            createDynamicTextView(text,structure_layout);
         }
 
         if(structure.getAttack() != 0){
             text = "Attack : <strong><font color=#03ac13>" + structure.getAttack() + "</font></strong>";
-            TextView attack = findViewById(R.id.structure_attack);
-            attack.setText(Html.fromHtml(text));
+            createDynamicTextView(text,structure_layout);
         }
 
         if(structure.getSpecial() != null){
-            LinearLayout structure_special = findViewById(R.id.structure_special);
-            TextView txt = findViewById(R.id.structure_special_txt);
-            txt.setText("Special :");
+            LinearLayout structure_special = new LinearLayout(this);
+            structure_special.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            structure_special.setGravity(Gravity.CENTER_HORIZONTAL);
+            structure_special.setOrientation(LinearLayout.VERTICAL);
+            structure_layout.addView(structure_special);
+            createDynamicTextView("Special : ", structure_special);
             for (String special : structure.getSpecial()) {
-                TextView textView = new TextView(this);
-                textView.setTextSize(12);
-                textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                textView.setGravity(Gravity.CENTER_HORIZONTAL);
                 text = "<strong><font color=#03ac13>" + special + "</font></strong>";
-                textView.setText(Html.fromHtml(text));
-                structure_special.addView(textView);
+                createDynamicTextView(text, structure_special);
             }
         }
+    }
+    public void createDynamicTextView(String text, LinearLayout structure_layout){
+        TextView textView = new TextView(this);
+        textView.setText(Html.fromHtml(text));
+        textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        textView.setGravity(Gravity.CENTER_HORIZONTAL);
+        textView.setTextSize(15);
+        structure_layout.addView(textView);
     }
 }
