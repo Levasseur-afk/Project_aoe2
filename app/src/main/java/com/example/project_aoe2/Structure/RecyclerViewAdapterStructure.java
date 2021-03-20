@@ -5,6 +5,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,11 +17,13 @@ import com.example.project_aoe2.ApiObjects.Structure;
 import com.example.project_aoe2.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerViewAdapterStructure.ItemViewHolder>{
+public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerViewAdapterStructure.ItemViewHolder> implements Filterable {
     private Context context;
     private List<Structure> structureList;
+    private List<Structure> structureListFull;
 
     public RecyclerViewAdapterStructure(Context context, List<Structure> structureList){
         this.context = context;
@@ -68,6 +72,7 @@ public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerV
 
     public void showNewStructureList(List<Structure> structureList) {
         this.structureList = structureList;
+        this.structureListFull = new ArrayList<>(structureList);
         notifyDataSetChanged();
     }
 
@@ -80,5 +85,40 @@ public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerV
             this.structure = itemView.findViewById(R.id.structure);
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return structureFilter;
+    }
+
+    private Filter structureFilter = new Filter(){
+
+        // done in background thread
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Structure> filteredStructure = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0){
+                filteredStructure.addAll(structureListFull);
+            }
+            else{
+                String filteredPattern = constraint.toString().toLowerCase();
+                for(Structure structure : structureListFull){
+                    if(structure.getName().toLowerCase().contains(filteredPattern)){
+                        filteredStructure.add(structure);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredStructure;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            structureList.clear();
+            structureList.addAll((List)results.values);
+            notifyDataSetChanged();
+        }
+    };
 
 }

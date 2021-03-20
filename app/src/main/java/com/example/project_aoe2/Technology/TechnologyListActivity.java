@@ -8,7 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 
 import com.example.project_aoe2.ApiObjects.Technology;
 import com.example.project_aoe2.R;
@@ -48,5 +52,29 @@ public class TechnologyListActivity extends AppCompatActivity implements GetTech
 
     public void displayTechnology(List<Technology> technologyList){
         recyclerViewAdapterTechnology.showNewTechnologyList(technologyList);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.search_menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView =  (SearchView) searchItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                recyclerViewAdapterTechnology.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return true;
     }
 }
