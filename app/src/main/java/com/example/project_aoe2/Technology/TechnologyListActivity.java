@@ -31,7 +31,7 @@ public class TechnologyListActivity extends AppCompatActivity implements GetTech
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_technology);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
-        this.recyclerViewAdapterTechnology = new RecyclerViewAdapterTechnology(new ArrayList<Technology>());
+        this.recyclerViewAdapterTechnology = new RecyclerViewAdapterTechnology(this, new ArrayList<Technology>());
         recyclerView.setAdapter(this.recyclerViewAdapterTechnology);
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override
