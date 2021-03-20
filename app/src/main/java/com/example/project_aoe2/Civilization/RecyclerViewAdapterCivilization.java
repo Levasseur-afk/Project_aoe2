@@ -99,12 +99,9 @@ public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<Recycl
             }
             else{
                 String filteredPattern = constraint.toString().toLowerCase();
-                Log.v("CIVILIZATION", "SIZE " + Integer.toString(civilizationListFull.size()));
                 for(Civilization civ : civilizationListFull){
-
                     if(civ.getName().toLowerCase().contains(filteredPattern)){
                         filteredCivilization.add(civ);
-                        Log.v("CIVILIZATION", civ.getName());
                     }
                 }
             }
