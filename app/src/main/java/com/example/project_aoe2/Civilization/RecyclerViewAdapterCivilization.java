@@ -2,9 +2,12 @@ package com.example.project_aoe2.Civilization;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,10 +18,12 @@ import com.example.project_aoe2.ApiObjects.Civilization;
 import com.example.project_aoe2.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<RecyclerViewAdapterCivilization.ItemViewHolder>{
+public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<RecyclerViewAdapterCivilization.ItemViewHolder> implements Filterable {
     private List<Civilization> civilizationList;
+    private List<Civilization> civilizationListFull;
     private Context context;
 
     public RecyclerViewAdapterCivilization(Context context, List<Civilization> civilizationList){
@@ -64,6 +69,7 @@ public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<Recycl
 
     public void showNewCivilizationList(List<Civilization> civilizationList) {
         this.civilizationList = civilizationList;
+        this.civilizationListFull = new ArrayList<>(civilizationList);
         notifyDataSetChanged();
     }
 
@@ -77,5 +83,42 @@ public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<Recycl
         }
     }
 
+    @Override
+    public Filter getFilter() {
+        return civilizationFilter;
+    }
+
+    private Filter civilizationFilter = new Filter(){
+
+        // done in background thread
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Civilization> filteredCivilization = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0){
+                filteredCivilization.addAll(civilizationListFull);
+            }
+            else{
+                String filteredPattern = constraint.toString().toLowerCase();
+                Log.v("CIVILIZATION", "SIZE " + Integer.toString(civilizationListFull.size()));
+                for(Civilization civ : civilizationListFull){
+
+                    if(civ.getName().toLowerCase().contains(filteredPattern)){
+                        filteredCivilization.add(civ);
+                        Log.v("CIVILIZATION", civ.getName());
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredCivilization;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            civilizationList.clear();
+            civilizationList.addAll((List)results.values);
+            notifyDataSetChanged();
+        }
+    };
 }
 
