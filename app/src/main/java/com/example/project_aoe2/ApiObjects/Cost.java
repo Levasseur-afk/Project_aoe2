@@ -1,7 +1,7 @@
 package com.example.project_aoe2.ApiObjects;
 
 import java.io.Serializable;
-
+// Classic POJO
 public class Cost implements Serializable {
     private int Wood;
     private int Food;

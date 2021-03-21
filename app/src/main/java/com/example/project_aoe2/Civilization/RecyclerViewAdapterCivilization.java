@@ -31,6 +31,7 @@ public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<Recycl
         this.civilizationList = civilizationList;
     }
 
+    // Build layout by inflating a layout as "template" multiple times (fragment mechanism)
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -98,6 +99,7 @@ public class RecyclerViewAdapterCivilization extends RecyclerView.Adapter<Recycl
                 filteredCivilization.addAll(civilizationListFull);
             }
             else{
+                // it's the input text of the user
                 String filteredPattern = constraint.toString().toLowerCase();
                 for(Civilization civ : civilizationListFull){
                     if(civ.getName().toLowerCase().contains(filteredPattern)){

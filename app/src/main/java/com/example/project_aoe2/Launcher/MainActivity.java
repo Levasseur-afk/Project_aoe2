@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
     }
 
+    // simple redirect after click on button
     public void goToCivilizations(View v){
         Intent intent = new Intent(this, CivilizationListActivity.class);
         startActivity(intent);

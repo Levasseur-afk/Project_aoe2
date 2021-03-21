@@ -18,6 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, TABLE_NAME, null,1);
     }
 
+    // create table with 2 columns : id and name
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + COL2 + " TEXT)";
@@ -28,6 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     }
+    // try to add data and return success boolean
     public boolean addData(String item){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -42,6 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    // retrieve saved lines of database
     public Cursor getData(){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME;

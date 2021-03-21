@@ -15,6 +15,7 @@ public class TouchListener implements RecyclerView.OnItemTouchListener{
     private ITouchListener listener;
     private GestureDetector gestureDetector;
 
+    // Hancle click on recyclerView fragment item
     public TouchListener(Context context, RecyclerView rv, ITouchListener listener) {
         this.context = context;
         this.recyclerView = rv;

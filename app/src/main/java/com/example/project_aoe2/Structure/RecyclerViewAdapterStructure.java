@@ -30,6 +30,7 @@ public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerV
         this.structureList = structureList;
     }
 
+    // Build layout by inflating a layout as "template" multiple times (fragment mechanism)
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -43,6 +44,7 @@ public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerV
         holder.structure.setText(structure.getName());
         int id = 0;
         try {
+            // I had namming issues with my images so I built this solution
             String toReplace[] = {" ", "-", "(", ")"};
             String name = structure.getName().toLowerCase() + "_aoe2de";
             for(String ch : toReplace){
@@ -101,6 +103,7 @@ public class RecyclerViewAdapterStructure extends RecyclerView.Adapter<RecyclerV
                 filteredStructure.addAll(structureListFull);
             }
             else{
+                // it's the input text of the user
                 String filteredPattern = constraint.toString().toLowerCase();
                 for(Structure structure : structureListFull){
                     if(structure.getName().toLowerCase().contains(filteredPattern)){

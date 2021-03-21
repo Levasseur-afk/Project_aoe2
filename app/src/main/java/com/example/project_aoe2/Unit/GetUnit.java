@@ -15,12 +15,14 @@ public class GetUnit implements GetRawData.IProcessRawData{
     private Unit unit;
     private final IDisplay display;
 
+    // download the json file from the api and will trigger processRawData to convert into Java Object
     public GetUnit(String url, IDisplay context){
         this.display = context;
         GetRawData getRawData = new GetRawData(url, this);
         getRawData.startDownload();
     }
 
+    // convert json to Java Object
     @Override
     public void processRawData(String json){
         try {
@@ -28,7 +30,7 @@ public class GetUnit implements GetRawData.IProcessRawData{
             JSONObject jsonUnit = new JSONObject(json);
 
             // retrieve data of each attribute of the json
-
+            // making sure I don't call a missing json key
             if(!jsonUnit.isNull("id")){
                 unit.setId(jsonUnit.getInt("id"));
             }

@@ -14,6 +14,7 @@ public class GetTechnologies implements GetRawData.IProcessRawData{
     private final List<Technology> technologyList;
     private final IDisplay display;
 
+    // download the json file from the api and will trigger processRawData to convert into Java Object
     public GetTechnologies(String url, IDisplay context){
         this.technologyList = new ArrayList<Technology>();
         this.display = context;
@@ -21,6 +22,7 @@ public class GetTechnologies implements GetRawData.IProcessRawData{
         getRawData.startDownload();
     }
 
+    // convert json to Java Object
     @Override
     public void processRawData(String json){
         try {

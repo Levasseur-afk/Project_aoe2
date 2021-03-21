@@ -31,11 +31,13 @@ public class UnitListActivity extends AppCompatActivity implements GetUnits.IDis
         super.onCreate(savedInstanceState);
         this.context = this;
         setContentView(R.layout.activity_unit_list);
+        // init recycler view
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_unit);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         this.recyclerViewAdapterUnit = new RecyclerViewAdapterUnit(this, new ArrayList<Unit>());
         recyclerView.setAdapter(this.recyclerViewAdapterUnit);
+        // on click, we want to launch a new activity to show details of the item clicked
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override
             public void onClick(View v, int position) {
@@ -53,6 +55,7 @@ public class UnitListActivity extends AppCompatActivity implements GetUnits.IDis
         recyclerViewAdapterUnit.showNewUnitList(unitList);
     }
 
+    // insert my special menu to use SearchView
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

@@ -32,11 +32,13 @@ public class StructureListActivity extends AppCompatActivity implements GetStruc
         super.onCreate(savedInstanceState);
         this.context = this;
         setContentView(R.layout.activity_structure_list);
+        // init recycler view
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_structure);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         this.recyclerViewAdapterStructure = new RecyclerViewAdapterStructure(this, new ArrayList<Structure>());
         recyclerView.setAdapter(this.recyclerViewAdapterStructure);
+        // on click, we want to launch a new activity to show details of the item clicked
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override
             public void onClick(View v, int position) {
@@ -54,6 +56,7 @@ public class StructureListActivity extends AppCompatActivity implements GetStruc
         recyclerViewAdapterStructure.showNewStructureList(structureList);
     }
 
+    // insert my special menu to use SearchView
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

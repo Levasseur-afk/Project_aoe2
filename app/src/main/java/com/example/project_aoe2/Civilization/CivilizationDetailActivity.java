@@ -28,7 +28,7 @@ public class CivilizationDetailActivity extends AppCompatActivity implements Get
         new GetCivilization(url, this);
 
     }
-
+    // Once the download of data is done, this function fill content of View using the item clicked
     public void displayCivilization(Civilization civ) {
         ImageView img = findViewById(R.id.civ_icon_detail);
         int id = 0;

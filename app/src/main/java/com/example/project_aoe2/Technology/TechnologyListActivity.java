@@ -32,11 +32,13 @@ public class TechnologyListActivity extends AppCompatActivity implements GetTech
         super.onCreate(savedInstanceState);
         this.context = this;
         setContentView(R.layout.activity_technology_list);
+        // init recycler view
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_technology);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         this.recyclerViewAdapterTechnology = new RecyclerViewAdapterTechnology(this, new ArrayList<Technology>());
         recyclerView.setAdapter(this.recyclerViewAdapterTechnology);
+        // on click, we want to launch a new activity to show details of the item clicked
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override
             public void onClick(View v, int position) {
@@ -54,6 +56,7 @@ public class TechnologyListActivity extends AppCompatActivity implements GetTech
         recyclerViewAdapterTechnology.showNewTechnologyList(technologyList);
     }
 
+    // insert my special menu to use SearchView
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

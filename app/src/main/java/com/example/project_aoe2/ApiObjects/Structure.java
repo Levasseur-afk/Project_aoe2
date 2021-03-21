@@ -2,7 +2,7 @@ package com.example.project_aoe2.ApiObjects;
 
 import java.io.Serializable;
 import java.util.List;
-
+// Classic POJO
 public class Structure implements Serializable {
     private int id;
     private String name;

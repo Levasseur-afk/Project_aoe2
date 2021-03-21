@@ -30,11 +30,13 @@ public class CivilizationListActivity extends AppCompatActivity implements GetCi
         super.onCreate(savedInstanceState);
         this.context = this;
         setContentView(R.layout.activity_civilization_list);
+        // init recycler view
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_view_civilization);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         this.recyclerViewAdapterCivilization = new RecyclerViewAdapterCivilization(this, new ArrayList<Civilization>());
         recyclerView.setAdapter(this.recyclerViewAdapterCivilization);
+        // on click, we want to launch a new activity to show details of the item clicked
         recyclerView.addOnItemTouchListener(new TouchListener(this, recyclerView, new TouchListener.ITouchListener() {
             @Override
             public void onClick(View v, int position) {
@@ -52,6 +54,7 @@ public class CivilizationListActivity extends AppCompatActivity implements GetCi
         recyclerViewAdapterCivilization.showNewCivilizationList(civilizationList);
     }
 
+    // insert my special menu to use SearchView
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

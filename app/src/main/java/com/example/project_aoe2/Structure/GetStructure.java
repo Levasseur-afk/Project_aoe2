@@ -16,17 +16,20 @@ public class GetStructure implements GetRawData.IProcessRawData{
     private Structure structure;
     private final IDisplay display;
 
+    // download the json file from the api and will trigger processRawData to convert into Java Object
     public GetStructure(String url, GetStructure.IDisplay context){
         this.display = context;
         GetRawData getRawData = new GetRawData(url, this);
         getRawData.startDownload();
     }
 
+    // convert json to Java Object
     @Override
     public void processRawData(String json){
         try {
             JSONObject jsonStructure = new JSONObject(json);
             structure = new Structure();
+            // making sure I don't call a missing json key
             if(!jsonStructure.isNull("id")){
                 structure.setId(jsonStructure.getInt("id"));
             }

@@ -15,17 +15,20 @@ public class GetTechnology implements GetRawData.IProcessRawData{
     private Technology technology;
     private final IDisplay display;
 
+    // download the json file from the api and will trigger processRawData to convert into Java Object
     public GetTechnology(String url, IDisplay context){
         this.display = context;
         GetRawData getRawData = new GetRawData(url, this);
         getRawData.startDownload();
     }
 
+    // convert json to Java Object
     @Override
     public void processRawData(String json){
         try {
             JSONObject jsonTechnology = new JSONObject(json);
             technology = new Technology();
+            // making sure I don't call a missing json key
             if(!jsonTechnology.isNull("id")){
                 technology.setId(jsonTechnology.getInt("id"));
             }

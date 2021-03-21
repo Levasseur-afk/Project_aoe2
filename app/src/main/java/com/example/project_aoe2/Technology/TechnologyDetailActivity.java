@@ -27,6 +27,7 @@ public class TechnologyDetailActivity extends AppCompatActivity implements GetTe
         new GetTechnology(url, this);
 
     }
+    // Once the download of data is done, this function fill content of View using the item clicked
     public void displayTechnology(Technology technology){
         ImageView img = findViewById(R.id.technology_icon_detail);
         int id = 0;

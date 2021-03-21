@@ -14,6 +14,7 @@ public class GetCivilizations implements GetRawData.IProcessRawData{
     private final List<Civilization> civilizationList;
     private final IDisplay display;
 
+    // download the json file from the api and will trigger processRawData to convert into Java Object
     public GetCivilizations(String url, IDisplay context){
         this.civilizationList = new ArrayList<Civilization>();
         this.display = context;
@@ -21,6 +22,7 @@ public class GetCivilizations implements GetRawData.IProcessRawData{
         getRawData.startDownload();
     }
 
+    // convert json to Java Object
     @Override
     public void processRawData(String json){
         try {

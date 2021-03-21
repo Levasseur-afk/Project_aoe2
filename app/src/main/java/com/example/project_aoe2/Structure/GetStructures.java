@@ -15,6 +15,7 @@ public class GetStructures implements GetRawData.IProcessRawData{
     private final List<Structure> structureList;
     private final IDisplay display;
 
+    // download the json file from the api and will trigger processRawData to convert into Java Object
     public GetStructures(String url, IDisplay context){
         this.structureList = new ArrayList<Structure>();
         this.display = context;
@@ -22,6 +23,7 @@ public class GetStructures implements GetRawData.IProcessRawData{
         getRawData.startDownload();
     }
 
+    // convert json to Java Object
     @Override
     public void processRawData(String json){
         try {

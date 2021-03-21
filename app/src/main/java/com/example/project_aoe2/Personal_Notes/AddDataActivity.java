@@ -26,6 +26,7 @@ public class AddDataActivity extends AppCompatActivity {
         btnViewData = (Button) findViewById(R.id.btnView);
         databaseHelper = new DatabaseHelper(this);
 
+        // action after clicking on add a sentence
         btnAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -49,6 +50,7 @@ public class AddDataActivity extends AppCompatActivity {
         });
     }
 
+    // display message whether data was added successfully or not
     public void AddData(String newEntry){
         boolean insertData = databaseHelper.addData(newEntry);
         if(insertData){

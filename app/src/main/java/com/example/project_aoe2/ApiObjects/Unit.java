@@ -13,7 +13,7 @@ import com.example.project_aoe2.R;
 
 import java.io.Serializable;
 import java.util.List;
-
+// Classic POJO
 public class Unit implements Serializable {
     private int id;
     private String name;

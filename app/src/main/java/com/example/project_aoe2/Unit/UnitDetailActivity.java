@@ -32,6 +32,7 @@ public class UnitDetailActivity extends AppCompatActivity implements GetUnit.IDi
         new GetUnit(url, this);
     }
 
+    // Once the download of data is done, this function fill content of View using the item clicked
     public void displayUnit(Unit unit){
         ImageView img = findViewById(R.id.unit_icon_detail);
         int id = 0;

@@ -19,13 +19,15 @@ public class GetRawData {
         this.context = context;
     }
 
+    // Starter of the AsyncTask
     public void startDownload(){
         DownloadRawData downloadRawData = new DownloadRawData();
         downloadRawData.execute(this.mRawUrl);
     }
-
+    // Long task => get data from website
     class DownloadRawData extends AsyncTask<String, Void, String> {
 
+        // once the downloading has ended, the json string data is sent
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);

@@ -17,6 +17,7 @@ public class GetUnits implements GetRawData.IProcessRawData{
     private final List<Unit> unitList;
     private final IDisplay display;
 
+    // download the json file from the api and will trigger processRawData to convert into Java Object
     public GetUnits(String url, IDisplay context){
         this.unitList = new ArrayList<Unit>();
         this.display = context;
@@ -24,6 +25,7 @@ public class GetUnits implements GetRawData.IProcessRawData{
         getRawData.startDownload();
     }
 
+    // convert json to Java Object
     @Override
     public void processRawData(String json){
         try {

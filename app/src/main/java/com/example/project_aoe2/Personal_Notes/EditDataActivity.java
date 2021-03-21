@@ -22,6 +22,7 @@ public class EditDataActivity extends AppCompatActivity {
     private String selectedName;
     private int selectedID;
 
+    // modify or delete a special note
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

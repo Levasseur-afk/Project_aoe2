@@ -22,6 +22,7 @@ public class ListDataActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     private ListView listView;
 
+    // display all the data notes stored inside the database
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class ListDataActivity extends AppCompatActivity {
 
         populateListView();
     }
+    // retrieve data from database and insert it the listData
     private void populateListView(){
         Cursor data = databaseHelper.getData();
         ArrayList<String> listData = new ArrayList<>();

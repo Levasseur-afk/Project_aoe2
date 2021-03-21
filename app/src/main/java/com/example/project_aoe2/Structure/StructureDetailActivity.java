@@ -30,6 +30,7 @@ public class StructureDetailActivity extends AppCompatActivity implements GetStr
         new GetStructure(url, this);
     }
     @SuppressLint("SetTextI18n")
+    // Once the download of data is done, this function fill content of View using the item clicked
     public void displayStructure(Structure structure){
         ImageView img = findViewById(R.id.structure_icon_detail);
         int id = 0;
