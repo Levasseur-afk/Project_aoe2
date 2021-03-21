@@ -44,4 +44,12 @@
         android:text="@string/category_technologies"
         android:onClick="goToTechnologies"
         android:backgroundTint="@android:color/holo_red_dark"/>
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/personal_notes"
+        android:onClick="goToPersonalNotes"
+        android:backgroundTint="@android:color/holo_blue_dark"/>
 </LinearLayout>

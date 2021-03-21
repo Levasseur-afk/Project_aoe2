@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_aoe2">
-        <activity android:name=".Technology.TechnologyDetailActivity"></activity>
+        <activity android:name=".Personal_Notes.EditDataActivity"></activity>
+        <activity android:name=".Personal_Notes.ListDataActivity" />
+        <activity android:name=".Personal_Notes.AddDataActivity" />
+        <activity android:name=".Technology.TechnologyDetailActivity" />
         <activity android:name=".Technology.TechnologyListActivity" />
         <activity android:name=".Structure.StructureDetailActivity" />
         <activity android:name=".Structure.StructureListActivity" />

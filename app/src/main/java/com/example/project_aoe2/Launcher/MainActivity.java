@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.project_aoe2.Civilization.CivilizationListActivity;
+import com.example.project_aoe2.Personal_Notes.AddDataActivity;
 import com.example.project_aoe2.R;
 import com.example.project_aoe2.Structure.StructureListActivity;
 import com.example.project_aoe2.Technology.TechnologyListActivity;
@@ -35,6 +36,10 @@ public class MainActivity extends AppCompatActivity{
     }
     public void goToTechnologies(View v){
         Intent intent = new Intent(this, TechnologyListActivity.class);
+        startActivity(intent);
+    }
+    public void goToPersonalNotes(View v){
+        Intent intent = new Intent(this, AddDataActivity.class);
         startActivity(intent);
     }
 
