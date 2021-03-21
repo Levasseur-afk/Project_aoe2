@@ -10,5 +10,6 @@
     <string name="civ_bonus_txt">Civilization bonus : </string>
     <string name="age">Age : </string>
     <string name="created_in">Created in : </string>
-
+    <string name="develops_in">Develops in : </string>
+    <string name="applies_to">Applies to : </string>
 </resources>
