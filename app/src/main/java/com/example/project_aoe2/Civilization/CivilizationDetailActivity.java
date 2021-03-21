@@ -128,7 +128,7 @@ public class CivilizationDetailActivity extends AppCompatActivity implements Get
         LinearLayout civ_bonus = findViewById(R.id.civ_bonus);
         for (String bonus : civ.getCivilization_bonus()) {
             TextView textView = new TextView(this);
-            textView.setTextSize(12);
+            textView.setTextSize(15);
             textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             textView.setGravity(Gravity.CENTER_HORIZONTAL);
             text = "<strong><font color=#03ac13>" + bonus + "</font></strong>";

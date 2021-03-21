@@ -82,7 +82,7 @@ public class StructureDetailActivity extends AppCompatActivity implements GetStr
         TextView cost_txtView = findViewById(R.id.cost_structure_txt_view);
         cost_txtView.setText(Html.fromHtml(text));
 
-        text = "Build Time : <strong><font color=#03ac13>" + structure.getBuild_time() + "</font></strong>";
+        text = "Build Time : <strong><font color=#03ac13>" + structure.getBuild_time() + "s" + "</font></strong>";
         TextView build_time = findViewById(R.id.structure_build_time);
         build_time.setText(Html.fromHtml(text));
 

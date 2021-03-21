@@ -97,23 +97,25 @@ public class TechnologyDetailActivity extends AppCompatActivity implements GetTe
         TextView cost_txtView = findViewById(R.id.cost_technology_txt_view);
         cost_txtView.setText(Html.fromHtml(text));
 
-        text = "Build Time : <strong><font color=#03ac13>" + technology.getBuild_time() + "</font></strong>";
+        text = "Build Time : <strong><font color=#03ac13>" + technology.getBuild_time() + "s" + "</font></strong>";
         TextView build_time = findViewById(R.id.technology_build_time);
         build_time.setText(Html.fromHtml(text));
 
-        text = "Applies to : <strong><font color=#03ac13>| ";
-        for (String apply : technology.getApplies_to()) {
-            String filtered = ((apply.split("/"))[apply.split("/").length - 1]).replace("_", " ");
-            String final_name = "";
-            for (String m : filtered.split(" ")) {
-                String firstLtr = m.substring(0, 1).toUpperCase();
-                String restLtrs = m.substring(1);
-                final_name += firstLtr + restLtrs + " ";
+        if(technology.getApplies_to() != null){
+            text = "Applies to : <strong><font color=#03ac13>| ";
+            for (String apply : technology.getApplies_to()) {
+                String filtered = ((apply.split("/"))[apply.split("/").length - 1]).replace("_", " ");
+                String final_name = "";
+                for (String m : filtered.split(" ")) {
+                    String firstLtr = m.substring(0, 1).toUpperCase();
+                    String restLtrs = m.substring(1);
+                    final_name += firstLtr + restLtrs + " ";
+                }
+                text += final_name + " | ";
             }
-            text += final_name + " | ";
+            text += "</font></strong>";
+            TextView applies_to = findViewById(R.id.technology_applies_to);
+            applies_to.setText(Html.fromHtml(text));
         }
-        text += "</font></strong>";
-        TextView applies_to = findViewById(R.id.technology_applies_to);
-        applies_to.setText(Html.fromHtml(text));
     }
 }

@@ -102,21 +102,21 @@ public class UnitDetailActivity extends AppCompatActivity implements GetUnit.IDi
         TextView cost_txtView = findViewById(R.id.cost_unit_txt_view);
         cost_txtView.setText(Html.fromHtml(text));
 
-        text = "Build Time : <strong><font color=#03ac13>" + unit.getBuild_time() + "</font></strong>";
+        text = "Build Time : <strong><font color=#03ac13>" + unit.getBuild_time() + "s" + "</font></strong>";
         TextView build_time = findViewById(R.id.unit_build_time);
         build_time.setText(Html.fromHtml(text));
 
         LinearLayout unit_layout = findViewById(R.id.unit_layout);
         if(unit.getReload_time() != 0){
-            text = "Reload Time : <strong><font color=#03ac13>" + unit.getReload_time() + "</font></strong>";
+            text = "Reload Time : <strong><font color=#03ac13>" + unit.getReload_time() + "s" + "</font></strong>";
             createDynamicTextView(text,unit_layout);
         }
         if(unit.getAttack_delay() != 0){
-            text = "Attack Delay : <strong><font color=#03ac13>" + unit.getAttack_delay() + "</font></strong>";
+            text = "Attack Delay : <strong><font color=#03ac13>" + unit.getAttack_delay() + "s" + "</font></strong>";
             createDynamicTextView(text,unit_layout);
         }
         if(unit.getMovement_rate() != 0){
-            text = "Movement Rate : <strong><font color=#03ac13>" + unit.getMovement_rate() + "</font></strong>";
+            text = "Movement Rate : <strong><font color=#03ac13>" + unit.getMovement_rate() + "s" + "</font></strong>";
             createDynamicTextView(text,unit_layout);
         }
         if(unit.getLine_of_sight() != 0){
@@ -176,6 +176,10 @@ public class UnitDetailActivity extends AppCompatActivity implements GetUnit.IDi
             text = "Blast Radius : <strong><font color=#03ac13>" + unit.getBlast_radius() + "</font></strong>";
             createDynamicTextView(text,unit_layout);
         }
+        // Trick to add virtual "padding" at the end of scrollview dynamically
+        createDynamicTextView("",unit_layout);
+        createDynamicTextView("",unit_layout);
+        createDynamicTextView("",unit_layout);
     }
 
     public void createDynamicTextView(String text, LinearLayout unit_layout){
